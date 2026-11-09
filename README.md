@@ -1,16 +1,29 @@
 ## Hi there 👋
 
-<!--
-**joaquinluisdavid/joaquinluisdavid** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+I'm Joaquin Luis M. David, a Full-Stack Developer who works across web
+products, connected services, AI-powered features, and dependable user workflows.
 
-Here are some ideas to get you started:
+Explore my [developer portfolio](https://joaquinluisdavid.github.io/).
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Portfolio project
+
+This profile repository also contains the portfolio site, built with React,
+TypeScript, Vite, Tailwind CSS, Motion, and Lucide React.
+
+### Run locally
+
+Requirements: Node.js 20+ and npm 10+.
+
+```bash
+npm install
+npm run dev
+```
+
+### Test and build
+
+```bash
+npm test
+npm run typecheck
+npm run build
+npm run preview
+```
