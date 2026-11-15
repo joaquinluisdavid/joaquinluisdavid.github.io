@@ -62,8 +62,14 @@ export function Projects({
                     {project.name}
                   </h3>
                 </div>
-                <span className="rounded-full border border-line px-3 py-1 text-xs text-muted">In development</span>
               </div>
+              {project.imageUrl && (
+                <img
+                  src={project.imageUrl}
+                  alt={`${project.name} dashboard preview`}
+                  className="mt-6 w-full rounded-xl border border-line object-cover"
+                />
+              )}
               <p className="mt-6 text-lg leading-relaxed text-fg">{project.summary}</p>
               <p className="mt-4 text-sm leading-relaxed text-muted">{project.description}</p>
               {(project.demoUrl || project.appUrl || project.sourceUrl) && (

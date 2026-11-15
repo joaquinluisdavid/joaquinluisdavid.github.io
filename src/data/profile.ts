@@ -4,22 +4,21 @@ import type { Profile } from '../types/content';
 export const profile: Profile = {
   name: 'Joaquin Luis David',
   title: 'Frontend Developer',
-  headline: 'Frontend developer focused on clear, accessible product interfaces.',
+  headline: 'Joaquin Luis David',
   intro:
-    'My frontend experience includes AngularJS, TypeScript, and JavaScript. I am currently extending that practice through React and this portfolio project.',
+    "I'm a frontend developer with experience in AngularJS, TypeScript, and JavaScript, as well as APIs, integrations, AI features, and automated testing. These days, I'm exploring React and other technologies through different projects to keep improving as a developer.",
   email: 'joaquinluismdavid@gmail.com',
   github: 'https://github.com/joaquinluisdavid',
   linkedin: 'https://www.linkedin.com/in/joaquin-luis-david-87b34319b/',
   focusAreas: [
-    'Useful, intuitive product experiences',
-    'Connected services and AI capabilities',
-    'Dependable workflows and quality',
+    'Exploring React and new technologies',
+    'Building projects to grow as a developer',
+    'AI integrations, reliable workflows, and testing',
   ],
 };
 
 export const aboutParagraphs: string[] = [
-  'I help turn product requirements into clear, usable interfaces. My work focuses on interactive screens, reusable components, API-connected workflows, and the testing that helps keep frontend changes dependable after release.',
-  'My experience is strongest on the frontend: shaping flows, improving accessibility, working with existing services, and making complex application behavior easier to understand and use.',
-  'I have also helped bring AI capabilities into applications, including technical-support features and integrations with OpenAI APIs. Separately, my 2026 development work has been AI-assisted: coding tools helped me investigate and implement changes and tests. I frame the problems, guide the work, and validate outcomes; I do not claim every line was handwritten.',
-  'I value clear communication, maintainable solutions, and quality that can be demonstrated through tests. I am currently learning React through this portfolio, while building on my professional AngularJS experience.',
+  'I build and improve web applications from the interface to the services behind them. My work includes interactive screens, reusable components, API-connected workflows, and features that make complex products easier to use.',
+  'My experience includes AngularJS, TypeScript, JavaScript, Node.js, REST APIs, GitHub, GitLab, and Bitbucket integrations, along with automated testing using Jest, Mocha, Cypress, and Playwright. I have also contributed to AI support features and OpenAI integrations.',
+  'I am currently learning React and exploring new technologies through personal and product projects. My 2026 work has been AI-assisted: I frame problems, guide implementation, and validate changes with tests and type checks; I do not claim every line was handwritten.',
 ];

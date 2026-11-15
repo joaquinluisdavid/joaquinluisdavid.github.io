@@ -55,6 +55,7 @@ export interface Project {
   status: string;
   summary: string;
   description: string;
+  imageUrl?: string;
   technologies: string[];
   focus: string[];
   demoUrl?: string;
@@ -77,4 +78,3 @@ export interface Certificate {
   issuer: string;
   url: string;
 }
-

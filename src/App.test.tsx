@@ -24,7 +24,7 @@ describe('App', () => {
 
   it('renders every section as a labelled landmark', () => {
     render(<App />);
-    for (const name of [/building products across the whole experience/i, /broad toolkit/i, /more about my experience/i, /^Projects$/i, /what you’re building/i]) {
+    for (const name of [/building and improving web applications/i, /broad toolkit/i, /more about my experience/i, /^Projects$/i, /what you’re building/i]) {
       expect(screen.getByRole('region', { name })).toBeInTheDocument();
     }
   });

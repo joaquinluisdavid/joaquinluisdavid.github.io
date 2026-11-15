@@ -15,9 +15,6 @@ export function Hero({ profile }: { profile: Profile }) {
             {profile.headline}
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">{profile.intro}</p>
-          <p className="mt-6 text-sm text-muted">
-            <span className="text-fg">{profile.name}</span>
-          </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <ButtonLink href="#projects" variant="primary">

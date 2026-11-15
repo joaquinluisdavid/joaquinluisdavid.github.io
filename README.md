@@ -1,6 +1,6 @@
 ## Hi there 👋
 
-I'm Joaquin Luis M. David, a Full-Stack Developer who works across web
+I'm Joaquin Luis M. David, a Frontend Developer who works across web
 products, connected services, AI-powered features, and dependable user workflows.
 
 Explore my [developer portfolio](https://joaquinluisdavid.github.io/).
