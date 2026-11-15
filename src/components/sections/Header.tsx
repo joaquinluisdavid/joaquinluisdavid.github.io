@@ -7,10 +7,8 @@ import { ThemeToggle } from '../ui/ThemeToggle';
 const navItems = [
   { href: '#about', label: 'About' },
   { href: '#expertise', label: 'What I bring' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#ai', label: 'AI in my work' },
   { href: '#credentials', label: 'CV & credentials' },
-  { href: '#work', label: 'Highlights' },
+  { href: '#projects', label: 'Projects' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -39,16 +37,16 @@ export function Header({ name, theme, onToggleTheme }: HeaderProps) {
           <span>{name}</span>
         </a>
 
-        <nav aria-label="Primary" className="hidden items-center gap-7 md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-4 lg:flex">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="text-sm text-muted transition-colors hover:text-fg">
+            <a key={item.href} href={item.href} className="text-xs text-muted transition-colors hover:text-fg xl:text-sm">
               {item.label}
             </a>
           ))}
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
         </nav>
 
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
           <button
             type="button"
@@ -64,7 +62,7 @@ export function Header({ name, theme, onToggleTheme }: HeaderProps) {
       </Container>
 
       {menuOpen ? (
-        <nav id="mobile-nav" aria-label="Mobile" className="border-t border-line md:hidden">
+        <nav id="mobile-nav" aria-label="Mobile" className="border-t border-line lg:hidden">
           <Container className="flex flex-col py-2">
             {navItems.map((item) => (
               <a key={item.href} href={item.href} onClick={closeMenu} className="py-3 text-sm text-muted hover:text-fg">

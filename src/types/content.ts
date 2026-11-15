@@ -49,13 +49,27 @@ export interface EngineeringHighlight {
   concepts: string[];
 }
 
+export interface Project {
+  id: string;
+  name: string;
+  status: string;
+  summary: string;
+  description: string;
+  technologies: string[];
+  focus: string[];
+  demoUrl?: string;
+  appUrl?: string;
+  sourceUrl?: string;
+}
+
 export interface AiContribution {
   id: string;
   title: string;
   icon: IconKey;
   summary: string;
-  examples: string[];
-  context: string;
+  contribution: string;
+  technologies: string[];
+  concepts: string[];
 }
 
 export interface Certificate {

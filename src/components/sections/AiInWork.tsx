@@ -25,15 +25,21 @@ export function AiInWork({ contributions }: { contributions: AiContribution[] })
                 {contribution.title}
               </h3>
               <p className="mt-5 text-sm leading-relaxed text-muted">{contribution.summary}</p>
-              <ul className="mt-5 space-y-3">
-                {contribution.examples.map((example) => (
-                  <li key={example} className="flex gap-3 text-sm leading-relaxed">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-                    <span>{example}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-6 border-t border-line pt-4 text-xs leading-relaxed text-muted">{contribution.context}</p>
+              <p className="mt-5 text-sm leading-relaxed text-muted">{contribution.contribution}</p>
+              <div className="mt-6 grid gap-6 border-t border-line pt-6 sm:grid-cols-2">
+                <div>
+                  <p className="font-mono text-xs uppercase tracking-wider text-accent">Technologies</p>
+                  <ul className="mt-2 flex flex-wrap gap-2 text-xs text-muted">
+                    {contribution.technologies.map((technology) => <li key={technology}>{technology}</li>)}
+                  </ul>
+                </div>
+                <div>
+                  <p className="font-mono text-xs uppercase tracking-wider text-accent">What this shows</p>
+                  <ul className="mt-2 flex flex-wrap gap-2 text-xs text-muted">
+                    {contribution.concepts.map((concept) => <li key={concept}>{concept}</li>)}
+                  </ul>
+                </div>
+              </div>
             </article>
           </Reveal>
         ))}

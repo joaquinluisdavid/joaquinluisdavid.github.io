@@ -16,7 +16,7 @@ export function Expertise({ groups }: { groups: SkillGroup[] }) {
         {groups.map((group, index) => (
           <li key={group.id} className={group.id === 'product-delivery' ? 'sm:col-span-2 lg:col-span-3' : undefined}>
             <Reveal delay={index * 0.05} className="h-full">
-              <article className="h-full rounded-2xl border border-line bg-surface p-6 transition-colors hover:border-accent/50">
+              <article className="h-full rounded-2xl border border-line bg-surface p-6">
                 <h3 className="flex items-center gap-2.5 font-medium">
                   <span className="text-accent">
                     <Icon name={group.icon} />

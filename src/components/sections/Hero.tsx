@@ -20,10 +20,10 @@ export function Hero({ profile }: { profile: Profile }) {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink href="#work" variant="primary">
+            <ButtonLink href="#projects" variant="primary">
               View My Work <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </ButtonLink>
-            <ButtonLink href="#experience">Explore My Experience</ButtonLink>
+            <ButtonLink href="#career-journey">Explore My Experience</ButtonLink>
             <ButtonLink href="#contact">Contact Me</ButtonLink>
           </div>
 

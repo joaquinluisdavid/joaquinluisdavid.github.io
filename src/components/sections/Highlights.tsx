@@ -41,7 +41,7 @@ export function Highlights({ highlights }: { highlights: EngineeringHighlight[] 
           <Reveal key={highlight.id}>
             <article
               aria-labelledby={`highlight-${highlight.id}`}
-              className="rounded-2xl border border-line bg-surface p-6 transition-colors hover:border-accent/50 sm:p-8"
+              className="rounded-2xl border border-line bg-surface p-6 sm:p-8"
             >
               <h3 id={`highlight-${highlight.id}`} className="flex items-center gap-3 font-display text-2xl tracking-tight">
                 <span className="text-accent">

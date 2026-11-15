@@ -4,6 +4,7 @@ import App from './App';
 import { timeline } from './data/experience';
 import { skillGroups } from './data/expertise';
 import { highlights } from './data/highlights';
+import { projects } from './data/projects';
 import { aiContributions } from './data/ai-contributions';
 import { certificates, cvFileName } from './data/career-resources';
 import { aboutParagraphs, profile } from './data/profile';
@@ -16,14 +17,14 @@ describe('App', () => {
     expect(screen.getByRole('img', { name: /portrait of joaquin luis m\. david/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'LinkedIn profile' })).toHaveAttribute('href', profile.linkedin);
     expect(profile.linkedin).toMatch(/^https:\/\//);
-    expect(screen.getByRole('link', { name: /view my work/i })).toHaveAttribute('href', '#work');
-    expect(screen.getByRole('link', { name: /explore my experience/i })).toHaveAttribute('href', '#experience');
+    expect(screen.getByRole('link', { name: /view my work/i })).toHaveAttribute('href', '#projects');
+    expect(screen.getByRole('link', { name: /explore my experience/i })).toHaveAttribute('href', '#career-journey');
     expect(screen.getByRole('link', { name: /contact me/i })).toHaveAttribute('href', '#contact');
   });
 
   it('renders every section as a labelled landmark', () => {
     render(<App />);
-    for (const name of [/building products across the whole experience/i, /broad toolkit/i, /shaping complete products/i, /both building with AI/i, /more about my experience/i, /complex work/i, /what you’re building/i]) {
+    for (const name of [/building products across the whole experience/i, /broad toolkit/i, /more about my experience/i, /^Projects$/i, /what you’re building/i]) {
       expect(screen.getByRole('region', { name })).toBeInTheDocument();
     }
   });
@@ -43,7 +44,7 @@ describe('App', () => {
 
   it('distinguishes AI product contributions from AI-assisted development', () => {
     render(<App />);
-    const section = screen.getByRole('region', { name: /both building with AI/i });
+    const section = screen.getByRole('region', { name: /^Projects$/i });
     expect(within(section).getByRole('heading', { name: 'AI features in products' })).toBeInTheDocument();
     expect(within(section).getByRole('heading', { name: 'AI-assisted development' })).toBeInTheDocument();
     expect(aiContributions[1]?.summary).toMatch(/not autonomous/i);
@@ -51,17 +52,35 @@ describe('App', () => {
 
   it('renders one timeline entry per year in order', () => {
     render(<App />);
-    const section = screen.getByRole('region', { name: /shaping complete products/i });
-    const items = within(section).getAllByRole('heading', { level: 3 });
+    const section = screen.getByRole('region', { name: /^Projects$/i });
+    const items = within(section)
+      .getAllByRole('heading', { level: 4 })
+      .filter((item) => /^20\d\d/.test(item.textContent ?? ''));
     expect(items.map((item) => item.textContent?.slice(0, 4))).toEqual(['2023', '2024', '2025', '2026']);
   });
 
-  it('renders all five engineering highlights with their detail sections', () => {
+  it('renders all engineering highlights with their detail sections', () => {
     render(<App />);
     expect(highlights).toHaveLength(5);
     for (const highlight of highlights) {
       expect(screen.getByRole('article', { name: highlight.title })).toBeInTheDocument();
     }
+  });
+
+  it('renders the Planurse project with its product details', () => {
+    render(<App />);
+    const section = screen.getByRole('region', { name: /^Projects$/i });
+    expect(within(section).getByRole('heading', { name: 'Planurse' })).toBeInTheDocument();
+    expect(within(section).getAllByText(/AI-assisted/i).length).toBeGreaterThan(0);
+    expect(within(section).getByRole('link', { name: 'Demo preview' })).toHaveAttribute(
+      'href',
+      'https://joaquinluisdavid.github.io/planurse/demo',
+    );
+    expect(within(section).getByRole('link', { name: 'Live app' })).toHaveAttribute(
+      'href',
+      'https://joaquinluisdavid.github.io/planurse/',
+    );
+    expect(projects).toHaveLength(1);
   });
 
   it('starts in light mode, toggles to dark, and persists the choice', async () => {
@@ -87,7 +106,7 @@ describe('App', () => {
 });
 
 describe('content', () => {
-  const allContent = JSON.stringify({ profile, aboutParagraphs, skillGroups, timeline, highlights, aiContributions, certificates });
+  const allContent = JSON.stringify({ profile, aboutParagraphs, skillGroups, timeline, highlights, projects, aiContributions, certificates });
 
   it('never mentions proprietary names, issue keys, or internal identifiers', () => {
     const forbidden = [/bellini/i, /toro/i, /lonti/i, /BLN-\d+/i, /\b[0-9a-f]{40}\b/i, /bitbucket\.org/i];
