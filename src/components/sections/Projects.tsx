@@ -66,7 +66,7 @@ export function Projects({
               {project.imageUrl && (
                 <img
                   src={project.imageUrl}
-                  alt={`${project.name} dashboard preview`}
+                  alt={`${project.name} project preview`}
                   className="mt-6 w-full rounded-xl border border-line object-cover"
                 />
               )}
@@ -74,21 +74,21 @@ export function Projects({
               <p className="mt-4 text-sm leading-relaxed text-muted">{project.description}</p>
               {(project.demoUrl || project.appUrl || project.sourceUrl) && (
                 <div className="mt-6 mb-6 flex flex-wrap gap-3">
+                  {project.appUrl && (
+                    <ButtonLink href={project.appUrl} external variant="primary">
+                      Live site <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                    </ButtonLink>
+                  )}
                   {project.demoUrl && (
-                    <ButtonLink href={project.demoUrl} external variant="primary">
+                    <ButtonLink href={project.demoUrl} external>
                       Demo preview <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                     </ButtonLink>
                   )}
-                    {project.appUrl && (
-                      <ButtonLink href={project.appUrl} external>
-                        Live app <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-                      </ButtonLink>
-                    )}
-                    {project.sourceUrl && (
-                      <ButtonLink href={project.sourceUrl} external>
-                        Source code <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-                      </ButtonLink>
-                    )}
+                  {project.sourceUrl && (
+                    <ButtonLink href={project.sourceUrl} external>
+                      Source code <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                    </ButtonLink>
+                  )}
                 </div>
               )}
               <div className="mt-auto grid gap-6 border-t border-line pt-6 sm:grid-cols-2">

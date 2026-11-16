@@ -70,17 +70,31 @@ describe('App', () => {
   it('renders the Planurse project with its product details', () => {
     render(<App />);
     const section = screen.getByRole('region', { name: /^Projects$/i });
-    expect(within(section).getByRole('heading', { name: 'Planurse' })).toBeInTheDocument();
+    const project = screen.getByRole('article', { name: 'Planurse' });
+    expect(within(project).getByRole('heading', { name: 'Planurse' })).toBeInTheDocument();
     expect(within(section).getAllByText(/AI-assisted/i).length).toBeGreaterThan(0);
-    expect(within(section).getByRole('link', { name: 'Demo preview' })).toHaveAttribute(
+    const liveLink = within(project).getByRole('link', { name: 'Live site' });
+    expect(liveLink).toHaveAttribute('href', 'https://joaquinluisdavid.github.io/planurse/');
+    expect(liveLink).toHaveClass('bg-accent');
+    expect(within(project).getByRole('link', { name: 'Demo preview' })).toHaveAttribute(
       'href',
       'https://joaquinluisdavid.github.io/planurse/demo',
     );
-    expect(within(section).getByRole('link', { name: 'Live app' })).toHaveAttribute(
+    expect(projects).toHaveLength(2);
+  });
+
+  it('renders Bao & Co. with live and source links but no demo preview', () => {
+    render(<App />);
+    const project = screen.getByRole('article', { name: 'Bao & Co.' });
+
+    const liveLink = within(project).getByRole('link', { name: 'Live site' });
+    expect(liveLink).toHaveAttribute('href', 'https://baoandcoph.vercel.app');
+    expect(liveLink).toHaveClass('bg-accent');
+    expect(within(project).queryByRole('link', { name: 'Demo preview' })).not.toBeInTheDocument();
+    expect(within(project).getByRole('link', { name: 'Source code' })).toHaveAttribute(
       'href',
-      'https://joaquinluisdavid.github.io/planurse/',
+      'https://github.com/joaquinluisdavid/baoandcoph',
     );
-    expect(projects).toHaveLength(1);
   });
 
   it('starts in light mode, toggles to dark, and persists the choice', async () => {
